@@ -1,1 +1,60 @@
-<h1>My Portfolio<h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mahmad Ahmad | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <header class="bg-blue-700 text-white py-8 shadow">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl font-bold mb-2">Mahmad Ahmad</h1>
+      <p class="text-xl">Developer | Designer | Creator</p>
+      <nav class="mt-4">
+        <a href="#about" class="mx-2 hover:underline">About</a>
+        <a href="#projects" class="mx-2 hover:underline">Projects</a>
+        <a href="#contact" class="mx-2 hover:underline">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-10">
+    <section id="about" class="mb-10">
+      <h2 class="text-2xl font-semibold mb-4">About Me</h2>
+      <p class="text-lg">
+        Welcome to my portfolio! I'm passionate about building web applications and sharing my projects. 
+        I love using modern technologies like Tailwind CSS and GitHub. 
+      </p>
+    </section>
+
+    <section id="projects" class="mb-10">
+      <h2 class="text-2xl font-semibold mb-4">Projects</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h3 class="text-lg font-bold mb-2">Project One</h3>
+          <p class="mb-2">Description of your project goes here.</p>
+          <a href="https://github.com/mahmad1001/project1" class="text-blue-600 hover:underline">View on GitHub</a>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h3 class="text-lg font-bold mb-2">Project Two</h3>
+          <p class="mb-2">Description of your project goes here.</p>
+          <a href="https://github.com/mahmad1001/project2" class="text-blue-600 hover:underline">View on GitHub</a>
+        </div>
+        <!-- Add more projects here -->
+      </div>
+    </section>
+
+    <section id="contact" class="mb-10">
+      <h2 class="text-2xl font-semibold mb-4">Contact</h2>
+      <p class="text-lg mb-2">Email: <a href="mailto:mahmad1001@example.com" class="text-blue-600 hover:underline">mahmad1001@example.com</a></p>
+      <p class="text-lg">GitHub: <a href="https://github.com/mahmad1001" class="text-blue-600 hover:underline">mahmad1001</a></p>
+    </section>
+  </main>
+
+  <footer class="bg-blue-700 text-white py-4 text-center">
+    &copy; 2025 Mahmad Ahmad. All rights reserved.
+  </footer>
+</body>
+</html>
