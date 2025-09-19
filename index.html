@@ -41,12 +41,163 @@
           </p>
         </div>
         <div class="bg-white p-6 rounded-lg shadow">
-          <h3 class="text-lg font-bold mb-2">Accident Analysis (Jupyter Notebook)</h3>
-          <p class="mb-2">Explore the full accident analysis notebook and visualizations below:</p>
-          <iframe src="accident_analysis.html" width="100%" height="400" style="border:1px solid #ccc; border-radius:8px;"></iframe>
-          <p class="mt-2">
-            <a href="accident_analysis.html" target="_blank" class="text-blue-600 hover:underline">Open notebook in a new tab</a>
-          </p>
+          <h3 class="text-lg font-bold mb-2">🚦 Accident Analysis: Charlotte, NC (2018–2019)</h3>
+          <p class="mb-2">This project explores traffic accidents in Charlotte, NC, using data from 2018–2019. The work is presented in two parts: a public-facing portfolio post and a technical report for transparency and reproducibility.</p>
+          <h4 class="font-semibold mt-4 mb-2">Portfolio Post (Storytelling)</h4>
+          <h3 class="text-xl font-bold mb-2">🚦 When Are Charlotte’s Roads Most Dangerous?</h3>
+          <p class="mb-2">Every driver has felt it: the frustration of rush-hour traffic, the nervousness of driving on icy mornings, or the late-night silence of near-empty streets. But when do accidents actually happen most often — and what types of accidents are most common?</p>
+          <p class="mb-2">To answer this, I analyzed traffic accident data from Charlotte, NC (2018–2019), made publicly available on Kaggle. The dataset contains thousands of accident records, each with information about time, date, and event description.</p>
+          <ul class="list-disc ml-6 mb-2">
+            <li>When during the week are accidents most likely?</li>
+            <li>How do accidents vary by season and month?</li>
+            <li>What kinds of accidents happen most often?</li>
+          </ul>
+          <h4 class="font-semibold mt-4 mb-2">Accidents by Time and Day of the Week</h4>
+          <img src="images/Accident_heatmap.png" alt="Accident Heatmap: Hour vs Day of Week" class="rounded mb-2" style="max-width:100%;height:auto;" />
+          <p class="mb-2">The heatmap makes one thing clear: rush hours are the danger zones.</p>
+          <ul class="list-disc ml-6 mb-2">
+            <li>Morning peaks (7–9 AM) and evening peaks (4–6 PM) dominate, especially on weekdays.</li>
+            <li>Fridays show an especially heavy evening spike, lining up with weekend travel.</li>
+            <li>Late nights (1–5 AM) are quieter, though not accident-free — especially on weekends.</li>
+          </ul>
+          <p class="mb-2">👉 <b>Why it matters:</b> These trends reflect human patterns. Accidents rise when the roads are congested, when commuters are tired, or when weekend nightlife adds risk. For city officials, this highlights where traffic enforcement and safety campaigns can make the biggest impact.</p>
+          <h4 class="font-semibold mt-4 mb-2">Accidents by Month and Season</h4>
+          <img src="images/accidents_by_month.png" alt="Bar Chart: Accidents by Month" class="rounded mb-2" style="max-width:100%;height:auto;" />
+          <img src="images/accidents_by_season.png" alt="Bar Chart: Accidents by Season" class="rounded mb-2" style="max-width:100%;height:auto;" />
+          <p class="mb-2">The seasonal story is just as striking:</p>
+          <ul class="list-disc ml-6 mb-2">
+            <li>Fall and winter see the highest accident counts. Shorter daylight hours, wet or icy roads, and holiday travel all contribute.</li>
+            <li>December stands out with a clear bump — likely a mix of holiday traffic and winter weather hazards.</li>
+            <li>Summer is more stable, though higher vacation travel still keeps accident counts steady.</li>
+          </ul>
+          <p class="mb-2">👉 <b>Why it matters:</b> Seasonal awareness isn’t just trivia — it guides practical action. From salting roads in icy months to staggering police patrols during holiday weekends, this data helps the city prepare for predictable spikes in risk.</p>
+          <h4 class="font-semibold mt-4 mb-2">What Types of Accidents Happen Most?</h4>
+          <img src="images/Top_10_accidents.png" alt="Bar Chart: Top 10 Accident Types" class="rounded mb-2" style="max-width:100%;height:auto;" />
+          <p class="mb-2">Not all accidents are alike. The top 10 event descriptions reveal a few usual suspects:</p>
+          <ul class="list-disc ml-6 mb-2">
+            <li>Rear-end collisions dominate, often linked to congestion or distracted driving.</li>
+            <li>Sideswipes highlight the dangers of lane changes and crowded roads.</li>
+            <li>Fixed-object crashes — hitting poles, barriers, or signs — show how loss of control or poor conditions can lead to severe accidents.</li>
+          </ul>
+          <p class="mb-2">👉 <b>Why it matters:</b> Recognizing the most common types of accidents helps target prevention. Public awareness campaigns could emphasize safe following distances, while road design improvements could minimize opportunities for sideswipes.</p>
+          <h4 class="font-semibold mt-4 mb-2">Key Takeaways</h4>
+          <ul class="list-disc ml-6 mb-2">
+            <li><b>Timing matters:</b> Rush hours are the riskiest.</li>
+            <li><b>Season matters:</b> Fall and winter accidents climb sharply.</li>
+            <li><b>Cause matters:</b> Rear-end collisions dominate the accident landscape.</li>
+          </ul>
+          <p class="mb-2">Together, these findings remind us that accidents aren’t random. They follow predictable patterns, shaped by human behavior and the environment. By paying attention to these patterns, drivers can make safer choices, and city planners can design smarter, safer streets.</p>
+          <h4 class="font-semibold mt-4 mb-2">Ethical Considerations</h4>
+          <ul class="list-disc ml-6 mb-2">
+            <li><b>Fairness in resource allocation:</b> If certain neighborhoods or communities experience higher accident rates, city officials must ensure resources (like road maintenance, traffic patrols, and safety campaigns) are distributed equitably.</li>
+            <li><b>Avoiding blame:</b> Data can point to risky times and conditions, but accidents often involve complex human and environmental factors. Overemphasizing one factor (like “bad drivers”) risks oversimplifying the issue.</li>
+            <li><b>Privacy and transparency:</b> Accident data must be anonymized and responsibly shared, so safety insights can be gained without exposing sensitive information.</li>
+          </ul>
+          <p class="mb-2">👉 In short: the goal isn’t just to count accidents, but to use the data to build safer, fairer streets for everyone.</p>
+          <h4 class="font-semibold mt-4 mb-2">Technical Report (Process & Reflection)</h4>
+          <h4 class="font-semibold mt-4 mb-2">🛠 Technical Report: Accident Analysis (Charlotte, NC, 2018–2019)</h4>
+          <p class="mb-2">This technical report documents the process, data, and decisions behind the accident analysis project. It is intended for a technical audience — instructors, peers, or collaborators who may want to reproduce or extend the work.</p>
+          <h5 class="font-semibold mt-3 mb-1">1. Dataset Overview</h5>
+          <ul class="list-disc ml-6 mb-2">
+            <li><b>Source:</b> Charlotte, NC Traffic Accidents 2018–2019 (Kaggle)</li>
+            <li><b>Size:</b> ~62,000 rows × ~20 columns (accidents recorded across Charlotte in 2018 and 2019)</li>
+            <li><b>Key variables used:</b>
+              <ul class="list-disc ml-6">
+                <li>DateTime – timestamp of accident</li>
+                <li>Hour – extracted from DateTime</li>
+                <li>Day_of_Week – derived categorical (Mon–Sun)</li>
+                <li>Season – grouped by month (Winter, Spring, Summer, Fall)</li>
+                <li>Event_Description – textual descriptions of accident type</li>
+              </ul>
+            </li>
+            <li><b>Credibility:</b> The dataset is sourced from Charlotte city records and shared on Kaggle. While comprehensive, event descriptions are not standardized and require preprocessing.</li>
+          </ul>
+          <h5 class="font-semibold mt-3 mb-1">2. Data Cleaning & Preprocessing</h5>
+          <ul class="list-disc ml-6 mb-2">
+            <li><b>Datetime parsing:</b> Converted DateTime into Hour, Day_of_Week, Month, and Season for temporal analysis.</li>
+            <li><b>Handling missing values:</b>
+              <ul class="list-disc ml-6">
+                <li>Dropped rows missing critical time information (small fraction of dataset).</li>
+                <li>Normalized accident descriptions by trimming whitespace and unifying capitalization.</li>
+              </ul>
+            </li>
+            <li><b>Feature engineering:</b>
+              <ul class="list-disc ml-6">
+                <li>Created Season feature based on month (Dec–Feb = Winter, Mar–May = Spring, Jun–Aug = Summer, Sep–Nov = Fall).</li>
+                <li>Aggregated accident counts by hour, weekday, month, and season.</li>
+                <li>Filtering: Focused analysis on the top 10 most frequent accident descriptions for clarity.</li>
+              </ul>
+            </li>
+          </ul>
+          <h5 class="font-semibold mt-3 mb-1">3. Visualizations</h5>
+          <ul class="list-disc ml-6 mb-2">
+            <li><b>Heatmap (Accidents by Hour vs. Day of Week)</b>
+              <ul class="list-disc ml-6">
+                <li><b>Rationale:</b> Clearly highlights rush-hour peaks and weekday/weekend differences.</li>
+                <li><b>Design:</b> Used Seaborn heatmap with a gradient color palette for readability.</li>
+              </ul>
+            </li>
+            <li><b>Bar Chart (Accidents by Month)</b>
+              <ul class="list-disc ml-6">
+                <li><b>Rationale:</b> Useful for spotting monthly spikes (holiday travel, weather).</li>
+                <li><b>Design:</b> Months ordered chronologically, x-axis labels rotated for clarity.</li>
+              </ul>
+            </li>
+            <li><b>Bar Chart (Accidents by Season)</b>
+              <ul class="list-disc ml-6">
+                <li><b>Rationale:</b> Shows broader seasonal patterns.</li>
+                <li><b>Design:</b> Used distinct seasonal colors (blues for winter, greens for spring, etc.).</li>
+              </ul>
+            </li>
+            <li><b>Bar Chart (Top 10 Accident Descriptions)</b>
+              <ul class="list-disc ml-6">
+                <li><b>Rationale:</b> Summarizes the most common accident types.</li>
+                <li><b>Design:</b> Horizontal bar chart to avoid clutter from long labels.</li>
+              </ul>
+            </li>
+          </ul>
+          <h5 class="font-semibold mt-3 mb-1">4. Reflection</h5>
+          <ul class="list-disc ml-6 mb-2">
+            <li><b>What worked well:</b>
+              <ul class="list-disc ml-6">
+                <li>The heatmap effectively revealed rush-hour peaks and weekday patterns.</li>
+                <li>Seasonal and monthly bar charts showed clear trends.</li>
+                <li>Grouping accident descriptions into top 10 categories reduced noise.</li>
+              </ul>
+            </li>
+            <li><b>Challenges:</b>
+              <ul class="list-disc ml-6">
+                <li>Event descriptions were inconsistent (e.g., “rear end,” “rear-end collision”), which required cleaning.</li>
+                <li>Accident description bars still became crowded — grouping less frequent accidents into “Other” might improve readability.</li>
+                <li>Daily fluctuations added noise; smoothing or rolling averages could better highlight long-term patterns.</li>
+              </ul>
+            </li>
+            <li><b>Future improvements:</b>
+              <ul class="list-disc ml-6">
+                <li>Integrate weather data (rain, snow, temperature) to test environmental correlations.</li>
+                <li>Use NLP clustering for accident descriptions to unify similar categories.</li>
+                <li>Develop an interactive dashboard (Plotly/Dash or Tableau) for dynamic exploration.</li>
+              </ul>
+            </li>
+          </ul>
+          <h5 class="font-semibold mt-3 mb-1">5. Ethical Considerations</h5>
+          <ul class="list-disc ml-6 mb-2">
+            <li>Accident data can be powerful, but it requires responsible use:</li>
+            <li><b>Equity:</b> If accident hot spots cluster in certain neighborhoods, resources (like traffic patrols or road improvements) must be distributed fairly.</li>
+            <li><b>Avoiding blame:</b> Data should be used to improve safety, not to unfairly stigmatize groups of drivers or neighborhoods.</li>
+            <li><b>Privacy:</b> Accident data must remain anonymized and aggregated to prevent identification of individuals.</li>
+          </ul>
+          <h5 class="font-semibold mt-3 mb-1">6. Code Access</h5>
+          <ul class="list-disc ml-6 mb-2">
+            <li><b>Notebook:</b> The full reproducible code, including preprocessing and visualizations, is in <a href="accident_analysis.ipynb" class="text-blue-600 hover:underline">accident_analysis.ipynb</a>.</li>
+            <li><b>Image Export:</b> Charts were saved to <code>/images/</code> with <code>plt.savefig()</code> for inclusion in the storytelling portfolio post.</li>
+          </ul>
+          <h5 class="font-semibold mt-3 mb-1">7. References</h5>
+          <ul class="list-disc ml-6 mb-2">
+            <li><b>Dataset:</b> Charlotte, NC Traffic Accidents (2018–2019). Kaggle. <a href="#">Link</a></li>
+            <li><b>Tools:</b> Python 3.11, Pandas, NumPy, Matplotlib, Seaborn, Jupyter Notebook.</li>
+            <li><b>Inspiration:</b> FiveThirtyEight articles on data storytelling and visualization design.</li>
+          </ul>
         </div>
         <!-- Add more projects here -->
       </div>
