@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🏦 Loan Default Prediction: LendingClub Risk Assessment - Detailed Report</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <header class="bg-purple-700 text-white py-6 shadow">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between">
+        <h1 class="text-3xl font-bold">🏦 Loan Default Prediction: LendingClub Risk Assessment</h1>
+        <a href="../../index.html" class="bg-white text-purple-700 px-4 py-2 rounded hover:bg-gray-100 transition-colors">← Back to Portfolio</a>
+      </div>
+      <p class="text-xl mt-2">Machine Learning Classification Models for Financial Risk Assessment</p>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-8 max-w-4xl">
+    <section class="bg-white rounded-lg shadow-lg p-8 mb-8">
+      <h2 class="text-2xl font-bold mb-6 text-purple-700">💰 Portfolio Post (Storytelling)</h2>
+      
+      <h3 class="text-xl font-bold mb-4">🏦 Can AI Predict Who Will Default on Their Loan?</h3>
+      <p class="mb-4">Every day, financial institutions face a critical question: should they approve this loan application? Behind every decision lies the risk of default – borrowers who can't repay what they've borrowed. But what if machine learning could help predict these outcomes before they happen?</p>
+      
+      <p class="mb-4">Using historical data from LendingClub containing over 2.26 million loan records, I built classification models to predict loan defaults. This project explores whether borrower characteristics and loan features can reliably forecast financial risk.</p>
+      
+      <div class="bg-purple-50 p-4 rounded-lg mb-6">
+        <h4 class="font-semibold mb-2">Key Questions Explored:</h4>
+        <ul class="list-disc ml-6 space-y-1">
+          <li>Can we accurately predict which loans will default based on borrower information?</li>
+          <li>Which features are most predictive of loan default risk?</li>
+          <li>How do different classification algorithms perform on financial risk assessment?</li>
+        </ul>
+      </div>
+
+      <h4 class="font-semibold text-lg mt-6 mb-4">Key Takeaways</h4>
+      <div class="bg-purple-50 p-6 rounded-lg mb-6">
+        <ul class="space-y-2">
+          <li><strong>🎯 Predictability:</strong> Loan defaults can be predicted with reasonable accuracy using borrower and loan characteristics</li>
+          <li><strong>📊 Feature Importance:</strong> Credit grades, interest rates, and debt ratios are top predictors</li>
+          <li><strong>🤖 Model Selection:</strong> Random Forest models excel at capturing complex relationships in financial data</li>
+          <li><strong>⚖️ Ethical AI:</strong> Financial ML requires careful attention to fairness and transparency</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="bg-white rounded-lg shadow-lg p-8">
+      <h2 class="text-2xl font-bold mb-6 text-purple-700">🛠 Technical Report</h2>
+      <p class="mb-6 text-gray-700">This project used Random Forest and Logistic Regression models to predict loan defaults using LendingClub data with over 2.26 million records.</p>
+      
+      <div class="bg-gray-50 p-4 rounded-lg">
+        <p><strong>Notebook:</strong> Complete analysis available in <a href="loan-prediction.ipynb" class="text-purple-600 hover:underline">loan-prediction.ipynb</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-purple-700 text-white py-4 text-center mt-8">
+    <p>&copy; 2025 Muhamed Ahmad. All rights reserved.</p>
+  </footer>
+</body>
+</html>

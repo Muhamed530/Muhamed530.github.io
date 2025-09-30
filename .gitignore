@@ -1,0 +1,22 @@
+# Large data files
+*.csv
+filtered_loan_data.csv
+projects/loan-prediction/filtered_loan_data.csv
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
