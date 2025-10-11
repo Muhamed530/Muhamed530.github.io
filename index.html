@@ -6,44 +6,63 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: #1e1e1e;
+      color: #d4d4d4;
+    }
+    .vsc-header {
+      background: #23272e;
+    }
+    .vsc-card {
+      background: #23272e;
+      color: #22223b;
+    }
+    .vsc-blurb {
+      color: #22223b;
+    }
+    .vsc-profile {
+      box-shadow: 0 0 0 4px #23272e;
+    }
+  </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
-  <header class="bg-blue-700 text-white py-8 shadow">
-    <div class="container mx-auto px-4 text-center">
-  <h1 class="text-4xl font-bold mb-2">Muhamed Ahmad</h1>
-      <p class="text-xl">Developer | Designer | Creator</p>
-      <nav class="mt-4">
-        <a href="#about" class="mx-2 hover:underline">About</a>
-        <a href="#projects" class="mx-2 hover:underline">Projects</a>
-        <a href="#contact" class="mx-2 hover:underline">Contact</a>
-      </nav>
+<body class="bg-[#1e1e1e] text-[#d4d4d4]">
+  <header class="vsc-header text-white py-8 shadow">
+    <div class="container mx-auto px-4 flex items-center justify-center">
+      <img src="images/Fish.png" alt="Profile" class="vsc-profile w-24 h-24 rounded-full mr-6 object-cover border-4 border-[#23272e]" />
+      <div class="text-left">
+        <h1 class="text-4xl font-bold mb-2">Muhamed Ahmad</h1>
+        <p class="text-xl">Data Analyst | Python | Machine Learning</p>
+      </div>
     </div>
+    <nav class="mt-4 text-center">
+      <a href="#about" class="mx-2 hover:underline">About</a>
+      <a href="#projects" class="mx-2 hover:underline">Projects</a>
+      <a href="#contact" class="mx-2 hover:underline">Contact</a>
+    </nav>
   </header>
 
   <main class="container mx-auto px-4 py-10">
     <section id="about" class="mb-10">
       <h2 class="text-2xl font-semibold mb-4">About Me</h2>
       <p class="text-lg">
-        Welcome to my portfolio! I'm passionate about building web applications and sharing my projects. 
-        I love using modern technologies like Tailwind CSS and GitHub. 
+        I am a data analyst passionate about uncovering insights from complex datasets. Skilled in Python, machine learning, and data visualization, I turn raw data into actionable business intelligence.
       </p>
     </section>
 
     <section id="projects" class="mb-10">
       <h2 class="text-2xl font-semibold mb-4">Projects</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        
         <!-- Referee Bias Analysis Project -->
-        <div class="bg-white p-6 rounded-lg shadow">
-          <h3 class="text-lg font-bold mb-2">⚽ Referee Bias Analysis</h3>
-          <p class="mb-2">Statistical investigation of referee influence in Barcelona vs Real Madrid matches using 2024-25 season data. Tests fan perceptions against data reality.</p>
+        <div class="vsc-card p-6 rounded-lg shadow">
+          <h3 class="text-lg font-bold mb-2 vsc-blurb" style="color:#d4d4d4;">⚽ Referee Bias Analysis</h3>
+          <p class="mb-2 vsc-blurb" style="color:#d4d4d4;">Statistical investigation of referee influence in Barcelona vs Real Madrid matches using 2024-25 season data. Tests fan perceptions against data reality.</p>
           <div class="mb-2">
             <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Sports Analytics</span>
             <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded ml-1">Python</span>
             <span class="bg-orange-100 text-orange-800 text-xs font-medium px-2.5 py-0.5 rounded ml-1">Statistics</span>
           </div>
-          
-          <h4 class="font-semibold text-sm mb-2">🔍 Key Insights:</h4>
+          <h4 class="font-semibold text-sm mb-2 vsc-blurb">🔍 Key Insights:</h4>
           <div class="bg-gray-50 p-3 rounded-lg mb-3">
             <ul class="text-xs text-gray-600 space-y-1">
               <li>• No statistically significant referee bias detected</li>
@@ -52,24 +71,21 @@
               <li>• Small sample sizes limit bias detection power</li>
             </ul>
           </div>
-          
           <div class="space-y-1">
             <p><a href="projects/referee-bias/rb_analysis.html" target="_blank" class="text-blue-600 hover:underline">View Jupyter Analysis →</a></p>
             <p><a href="projects/referee-bias/referee-bias-detailed.html" target="_blank" class="text-blue-600 hover:underline font-semibold">📖 Read Full Story & Technical Report →</a></p>
           </div>
         </div>
-
         <!-- Loan Default Prediction Project -->
-        <div class="bg-white p-6 rounded-lg shadow">
-          <h3 class="text-lg font-bold mb-2">🏦 Loan Default Prediction</h3>
-          <p class="mb-2">Machine learning classification models to predict loan defaults using LendingClub data (2.26M+ records). Compares Random Forest vs Logistic Regression for financial risk assessment.</p>
+        <div class="vsc-card p-6 rounded-lg shadow">
+          <h3 class="text-lg font-bold mb-2 vsc-blurb" style="color:#d4d4d4;">🏦 Loan Default Prediction</h3>
+          <p class="mb-2 vsc-blurb" style="color:#d4d4d4;">Machine learning classification models to predict loan defaults using LendingClub data (2.26M+ records). Compares Random Forest vs Logistic Regression for financial risk assessment.</p>
           <div class="mb-2">
             <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded">Machine Learning</span>
             <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded ml-1">Python</span>
             <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded ml-1">Finance</span>
           </div>
-          
-          <h4 class="font-semibold text-sm mb-2">🎯 Key Insights:</h4>
+          <h4 class="font-semibold text-sm mb-2 vsc-blurb">🎯 Key Insights:</h4>
           <div class="bg-gray-50 p-3 rounded-lg mb-3">
             <ul class="text-xs text-gray-600 space-y-1">
               <li>• Credit grades most predictive feature for default risk</li>
@@ -78,53 +94,45 @@
               <li>• Ethical AI considerations in financial lending</li>
             </ul>
           </div>
-          
           <div class="space-y-1">
             <p><a href="projects/loan-prediction/loan-prediction.html" target="_blank" class="text-blue-600 hover:underline">View Jupyter Analysis →</a></p>
             <p><a href="projects/loan-prediction/loan-prediction-detailed.html" target="_blank" class="text-blue-600 hover:underline font-semibold">📖 Read Full Story & Technical Report →</a></p>
           </div>
         </div>
-
         <!-- Accident Analysis Project -->
-        <div class="bg-white p-6 rounded-lg shadow">
-          <h3 class="text-lg font-bold mb-2">🚦 Accident Analysis: Charlotte, NC</h3>
-          <p class="mb-2">Traffic accident pattern analysis using Charlotte, NC data (2018-2019). Features comprehensive data storytelling and technical documentation.</p>
+        <div class="vsc-card p-6 rounded-lg shadow">
+          <h3 class="text-lg font-bold mb-2 vsc-blurb" style="color:#d4d4d4;">🚦 Accident Analysis: Charlotte, NC</h3>
+          <p class="mb-2 vsc-blurb" style="color:#d4d4d4;">Traffic accident pattern analysis using Charlotte, NC data (2018-2019). Features comprehensive data storytelling and technical documentation.</p>
           <div class="mb-2">
             <span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded">Data Analysis</span>
             <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded ml-1">Python</span>
             <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded ml-1">Public Safety</span>
           </div>
-          
-          <h4 class="font-semibold text-sm mb-2">📊 Key Insights:</h4>
+          <h4 class="font-semibold text-sm mb-2 vsc-blurb">📊 Key Insights:</h4>
           <div class="grid grid-cols-2 gap-2 mb-3">
             <img src="images/Accident_heatmap.png" alt="Rush Hour Patterns" class="rounded" style="max-width:100%;height:auto;" />
             <img src="images/Accidents_by_season.png" alt="Seasonal Trends" class="rounded" style="max-width:100%;height:auto;" />
           </div>
-          
           <ul class="text-xs text-gray-600 space-y-1 mb-2">
             <li>• Rush hours (7-9 AM, 4-6 PM) show highest accident rates</li>
             <li>• Fall/winter see significant spikes in crashes</li>
             <li>• Rear-end collisions dominate accident types</li>
           </ul>
-          
           <div class="space-y-1">
             <p><a href="projects/accident-analysis/accident_analysis.html" target="_blank" class="text-blue-600 hover:underline">View Jupyter Analysis →</a></p>
             <p><a href="projects/accident-analysis/accident-analysis-detailed.html" target="_blank" class="text-blue-600 hover:underline font-semibold">📖 Read Full Story & Technical Report →</a></p>
           </div>
         </div>
-        
       </div>
     </section>
-
     <section id="contact" class="mb-10">
       <h2 class="text-2xl font-semibold mb-4">Contact</h2>
       <p class="text-lg mb-2">Email: <a href="mailto:Muhamed.Ahmad530@gmail.com" class="text-blue-600 hover:underline">Muhamed.Ahmad530@gmail.com</a></p>
       <p class="text-lg">GitHub: <a href="https://github.com/Muhamed530" class="text-blue-600 hover:underline">Muhamed530</a></p>
     </section>
   </main>
-
-  <footer class="bg-blue-700 text-white py-4 text-center">
-  &copy; 2025 Muhamed Ahmad. All rights reserved.
+  <footer class="vsc-header text-white py-4 text-center">
+  &copy; 2025 Muhamed Ahmad. All rights reserved. • Updated Sept 2025
   </footer>
 </body>
 </html>
