@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🎥 Bollywood Fame vs Talent Dashboard - Detailed Report</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <header class="bg-gradient-to-r from-yellow-600 to-red-600 text-white py-6 shadow">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between">
+        <h1 class="text-3xl font-bold">🎥 Balancing Fame and Talent in Bollywood</h1>
+        <a href="../../index.html" class="bg-white text-red-700 px-4 py-2 rounded hover:bg-gray-100 transition-colors">← Back to Portfolio</a>
+      </div>
+      <p class="text-xl mt-2">Interactive Dashboard for Entertainment Analytics</p>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-8 max-w-4xl">
+    
+    <!-- Portfolio Post (Storytelling) Section -->
+    <section class="bg-white rounded-lg shadow-lg p-8 mb-8">
+      <h2 class="text-2xl font-bold mb-6 text-red-700">🎬 Portfolio Post (Storytelling)</h2>
+      
+      <h3 class="text-xl font-bold mb-4">🌟 Does Fame Equal Talent in Bollywood?</h3>
+      <p class="mb-4">In the glittering world of Bollywood, where stardom is measured in Google searches and Instagram followers, a critical question emerges: Do the most famous actors deliver the best performances? Are entertainment journalists and studio executives focusing on the right metrics when evaluating talent?</p>
+      
+      <p class="mb-4">This interactive dashboard analyzes 200+ Bollywood actors across multiple dimensions—public attention (fame), movie performance (talent), and the balance between the two. Built with Streamlit and deployed for real-time exploration, it empowers stakeholders to make data-driven decisions about casting, marketing, and industry analysis.</p>
+      
+      <div class="bg-yellow-50 p-4 rounded-lg mb-6">
+        <h4 class="font-semibold mb-2">🎯 Dashboard Purpose & Target Audience:</h4>
+        <ul class="list-disc ml-6 space-y-1">
+          <li><strong>Entertainment Journalists:</strong> Discover stories about overrated vs underrated actors</li>
+          <li><strong>Studio Executives:</strong> Make casting decisions based on fame-talent alignment</li>
+          <li><strong>Film Analysts:</strong> Identify emerging talent and market trends</li>
+          <li><strong>Industry Researchers:</strong> Explore correlations between popularity and performance</li>
+        </ul>
+      </div>
+
+      <h4 class="font-semibold text-lg mt-6 mb-4">The Dashboard Experience: Interactive Analytics</h4>
+      <p class="mb-4">Unlike static reports, this dashboard allows users to actively explore the data through multiple interactive components:</p>
+      
+      <div class="grid md:grid-cols-2 gap-4 mb-6">
+        <div class="bg-blue-50 p-4 rounded-lg">
+          <h5 class="font-semibold text-blue-800 mb-2">🎚️ Interactive Filters</h5>
+          <ul class="text-sm space-y-1">
+            <li>• <strong>Movie Count Range:</strong> Focus on prolific vs emerging actors</li>
+            <li>• <strong>Rating Range:</strong> Filter by performance quality</li>
+            <li>• <strong>Actor Selection:</strong> Multi-select for comparison</li>
+            <li>• <strong>Dynamic Updates:</strong> All visualizations react instantly</li>
+          </ul>
+        </div>
+        <div class="bg-green-50 p-4 rounded-lg">
+          <h5 class="font-semibold text-green-800 mb-2">📊 Key Visualizations</h5>
+          <ul class="text-sm space-y-1">
+            <li>• <strong>Scatter Plot:</strong> Fame vs Talent correlation</li>
+            <li>• <strong>Bar Charts:</strong> Top 10 comparisons</li>
+            <li>• <strong>Actor Profiles:</strong> Drill-down detail views</li>
+            <li>• <strong>Tooltips:</strong> Rich hover information</li>
+          </ul>
+        </div>
+      </div>
+
+      <h4 class="font-semibold text-lg mt-6 mb-4">🔑 Key Performance Indicators (KPIs)</h4>
+      <p class="mb-4">The dashboard centers on three carefully chosen KPIs that provide actionable insights for decision-makers:</p>
+      
+      <div class="space-y-4 mb-6">
+        <div class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400">
+          <h5 class="font-semibold text-yellow-800 mb-2">1. Fame Score (Popularity Metric)</h5>
+          <p class="text-sm mb-2"><strong>Formula:</strong> 0.5 × normalizedGoogleRank + 0.5 × normalizedMovieRank</p>
+          <ul class="text-sm space-y-1">
+            <li>• <strong>Purpose:</strong> Quantifies public attention and market visibility</li>
+            <li>• <strong>Components:</strong> Google search volume + number of films</li>
+            <li>• <strong>Business Value:</strong> Predicts box office draw and marketing ROI</li>
+            <li>• <strong>Range:</strong> 0-1 (normalized for fair comparison)</li>
+          </ul>
+        </div>
+        
+        <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-400">
+          <h5 class="font-semibold text-red-800 mb-2">2. Talent Score (Performance Metric)</h5>
+          <p class="text-sm mb-2"><strong>Formula:</strong> Normalized average rating across all films</p>
+          <ul class="text-sm space-y-1">
+            <li>• <strong>Purpose:</strong> Measures actual performance quality</li>
+            <li>• <strong>Components:</strong> Average movie ratings (IMDb/critical scores)</li>
+            <li>• <strong>Business Value:</strong> Indicates critical success and awards potential</li>
+            <li>• <strong>Range:</strong> 0-1 (normalized from original 0-10 ratings)</li>
+          </ul>
+        </div>
+
+        <div class="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-400">
+          <h5 class="font-semibold text-purple-800 mb-2">3. Balance Score (Alignment Metric)</h5>
+          <p class="text-sm mb-2"><strong>Formula:</strong> 1 - |fameScore - talentScore|</p>
+          <ul class="text-sm space-y-1">
+            <li>• <strong>Purpose:</strong> Identifies over/underrated actors</li>
+            <li>• <strong>Interpretation:</strong> High score = fame matches talent</li>
+            <li>• <strong>Business Value:</strong> Discovers hidden gems and overvalued stars</li>
+            <li>• <strong>Range:</strong> 0-1 (1 = perfect balance)</li>
+          </ul>
+        </div>
+      </div>
+
+      <h4 class="font-semibold text-lg mt-6 mb-4">📈 Key Insights Discovered</h4>
+      <div class="bg-red-50 p-4 rounded-lg mb-4 border-l-4 border-red-400">
+        <h5 class="font-semibold mb-2">🎭 The Fame-Talent Correlation:</h5>
+        <ul class="space-y-2">
+          <li><strong>Moderate Positive Correlation (r ≈ 0.3-0.5):</strong> Fame and talent are somewhat aligned but far from perfectly correlated</li>
+          <li><strong>Outlier Discovery:</strong> Several high-fame actors score below average on talent, revealing potential overvaluation</li>
+          <li><strong>Hidden Gems:</strong> Multiple high-talent actors with low fame scores represent untapped opportunities</li>
+          <li><strong>Market Efficiency:</strong> The entertainment market isn't perfectly efficient—reputation doesn't always match reality</li>
+        </ul>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-4 mb-6">
+        <div class="bg-yellow-50 p-4 rounded-lg">
+          <h5 class="font-semibold text-yellow-800 mb-2">🌟 High Fame, High Talent</h5>
+          <ul class="text-sm space-y-1">
+            <li>• <strong>Aamir Khan:</strong> Top in both metrics—earned stardom</li>
+            <li>• <strong>Shah Rukh Khan:</strong> Balanced excellence</li>
+            <li>• <strong>Pattern:</strong> Established stars with consistent quality</li>
+          </ul>
+        </div>
+        <div class="bg-green-50 p-4 rounded-lg">
+          <h5 class="font-semibold text-green-800 mb-2">💎 Hidden Gems (High Talent, Lower Fame)</h5>
+          <ul class="text-sm space-y-1">
+            <li>• <strong>Character Actors:</strong> Consistently great performances</li>
+            <li>• <strong>Opportunity:</strong> Cost-effective casting choices</li>
+            <li>• <strong>Marketing Potential:</strong> Undervalued talents</li>
+          </ul>
+        </div>
+      </div>
+
+      <h4 class="font-semibold text-lg mt-6 mb-4">🎨 Design Philosophy: Cinematic Aesthetics</h4>
+      <p class="mb-4">The dashboard's visual design reflects Bollywood's vibrant aesthetic while maintaining professional clarity:</p>
+      
+      <div class="bg-gray-50 p-4 rounded-lg mb-4">
+        <h5 class="font-semibold mb-2">Color Palette Rationale:</h5>
+        <ul class="space-y-2">
+          <li><strong>🥇 Gold (#D4AF37):</strong> Represents talent, awards, and excellence—warm and prestigious</li>
+          <li><strong>🔴 Red (#D72638):</strong> Symbolizes fame, spotlight, and passion—attention-grabbing</li>
+          <li><strong>🎭 Accent (#912F40):</strong> Deep maroon for balance—sophisticated and neutral</li>
+          <li><strong>Gradient Headers:</strong> Gold-to-red transitions evoke Bollywood glamour</li>
+        </ul>
+      </div>
+
+      <h4 class="font-semibold text-lg mt-6 mb-4">💼 Business Impact & Use Cases</h4>
+      <ul class="list-disc ml-6 mb-4 space-y-2">
+        <li><strong>Casting Decisions:</strong> Identify actors who deliver quality without premium pricing</li>
+        <li><strong>Marketing Strategy:</strong> Allocate budgets based on fame-talent alignment</li>
+        <li><strong>Contract Negotiations:</strong> Data-driven salary discussions backed by performance metrics</li>
+        <li><strong>Story Development:</strong> Journalists can write data-backed pieces about industry trends</li>
+        <li><strong>Talent Scouting:</strong> Discover rising stars before they become expensive</li>
+      </ul>
+
+      <div class="bg-green-50 border-l-4 border-green-400 p-4 mb-6">
+        <p><strong>💡 Real-World Application:</strong> A studio executive considering two actors for a lead role can filter by rating range, compare their fame-talent balance, and make an informed decision. If both are equally talented, choosing the less famous actor could save millions while maintaining quality.</p>
+      </div>
+
+      <h4 class="font-semibold text-lg mt-6 mb-4">🚀 Interactive Features That Drive Engagement</h4>
+      <div class="grid md:grid-cols-3 gap-4 mb-6">
+        <div class="bg-blue-50 p-3 rounded">
+          <h5 class="font-medium mb-2">🔍 Drill-Down</h5>
+          <p class="text-sm">Click any actor to see detailed profile with mini-charts showing all three KPIs</p>
+        </div>
+        <div class="bg-purple-50 p-3 rounded">
+          <h5 class="font-medium mb-2">✨ Highlighting</h5>
+          <p class="text-sm">Toggle to highlight actors above average in both metrics with star markers</p>
+        </div>
+        <div class="bg-yellow-50 p-3 rounded">
+          <h5 class="font-medium mb-2">📥 Export</h5>
+          <p class="text-sm">Download complete technical report in Markdown format for documentation</p>
+        </div>
+      </div>
+
+      <h4 class="font-semibold text-lg mt-6 mb-4">🎯 Key Takeaways</h4>
+      <div class="bg-red-50 p-6 rounded-lg mb-6">
+        <ul class="space-y-2">
+          <li><strong>📊 Interactive Dashboards > Static Reports:</strong> Stakeholders can explore their specific questions rather than consuming pre-defined narratives</li>
+          <li><strong>🎭 Fame ≠ Talent:</strong> The entertainment industry has significant market inefficiencies that data can reveal</li>
+          <li><strong>💎 Hidden Value:</strong> Many talented actors lack fame, representing cost-effective opportunities</li>
+          <li><strong>🎨 Design Matters:</strong> Cinematic aesthetics make data exploration engaging without sacrificing clarity</li>
+          <li><strong>📈 KPI-Driven Decisions:</strong> Three simple metrics provide comprehensive insight into complex talent dynamics</li>
+        </ul>
+      </div>
+
+      <div class="bg-gradient-to-r from-yellow-50 to-red-50 p-6 rounded-lg">
+        <p class="text-center font-semibold text-lg mb-2">🌟 Explore the Live Dashboard</p>
+        <p class="text-center mb-4"><a href="https://bollywood.streamlit.app/" target="_blank" class="text-blue-600 hover:underline text-xl font-bold">→ Launch Interactive Dashboard ←</a></p>
+        <p class="text-center text-sm text-gray-600">Filter actors, compare metrics, and discover insights in real-time</p>
+      </div>
+    </section>
+
+    <!-- Technical Report Section -->
+    <section class="bg-white rounded-lg shadow-lg p-8">
+      <h2 class="text-2xl font-bold mb-6 text-red-700">🛠 Technical Report (Process & Methodology)</h2>
+      <p class="mb-6 text-gray-700">This technical report documents the complete dashboard development process, from data cleaning to deployment. It provides transparency into design decisions and lessons learned for reproducibility and peer review.</p>
+
+      <div class="space-y-8">
+        <div>
+          <h3 class="font-semibold text-lg mb-4 text-red-600">1. Audience & Context</h3>
+          <div class="bg-gray-50 p-4 rounded-lg">
+            <h4 class="font-semibold mb-2">Primary Stakeholders:</h4>
+            <ul class="space-y-2 mb-4">
+              <li><strong>Entertainment Journalists:</strong> Need data-driven stories about industry trends, overrated/underrated actors, and emerging talent</li>
+              <li><strong>Studio Executives:</strong> Require tools to evaluate casting options, negotiate contracts, and optimize marketing budgets</li>
+              <li><strong>Film Analysts:</strong> Seek comprehensive datasets to study market dynamics and predict box office success</li>
+              <li><strong>Casting Directors:</strong> Want to identify cost-effective talent that delivers quality performances</li>
+            </ul>
+            
+            <h4 class="font-semibold mb-2">Problem Statement:</h4>
+            <p class="mb-2">The entertainment industry often relies on intuition and anecdotal evidence when evaluating actor value. This leads to:</p>
+            <ul class="list-disc ml-6 space-y-1">
+              <li>Overpaying for fame without corresponding quality</li>
+              <li>Overlooking talented but less-famous actors</li>
+              <li>Difficulty quantifying "star power" vs actual performance</li>
+              <li>Lack of objective metrics for talent discussions</li>
+            </ul>
+            
+            <h4 class="font-semibold mb-2 mt-3">Dashboard Solution:</h4>
+            <p>Provides an interactive tool to explore fame-talent dynamics, compare actors objectively, and make data-informed decisions about casting, marketing, and industry analysis.</p>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="font-semibold text-lg mb-4 text-red-600">2. Dataset Overview & Origin</h3>
+          <div class="bg-gray-50 p-4 rounded-lg">
+            <ul class="space-y-2">
+              <li><strong>Source:</strong> BollywoodActorRanking.csv (compiled from public sources including IMDb, Google Trends, and industry databases)</li>
+              <li><strong>Size:</strong> 200+ Bollywood actors with 9 key attributes per record</li>
+              <li><strong>Time Period:</strong> Contemporary Bollywood (2000s-2020s career data)</li>
+              <li><strong>Key Variables:</strong>
+                <ul class="list-disc ml-6 mt-1 text-sm">
+                  <li><code>actor</code>: Actor name (string identifier)</li>
+                  <li><code>movieCount</code>: Total number of films (integer, range 1-54)</li>
+                  <li><code>ratingSum</code>: Cumulative ratings across all films (float)</li>
+                  <li><code>googleHits</code>: Search result count as proxy for popularity (integer, 0-3.5M)</li>
+                  <li><code>normalizedMovieRank</code>: Min-max scaled movie count (0-1)</li>
+                  <li><code>normalizedGoogleRank</code>: Min-max scaled Google hits (0-1)</li>
+                  <li><code>normalizedRating</code>: Min-max scaled average rating (0-1)</li>
+                </ul>
+              </li>
+              <li><strong>Data Quality:</strong> Real-world dataset with typical issues (missing values, outliers, encoding errors)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="font-semibold text-lg mb-4 text-red-600">3. Data Cleaning & Preprocessing</h3>
+          <div class="bg-gray-50 p-4 rounded-lg">
+            <h4 class="font-semibold mb-3">3.1 Data Quality Issues Encountered:</h4>
+            <ul class="space-y-2 mb-4">
+              <li><strong>Missing Values:</strong>
+                <ul class="list-disc ml-6 mt-1 text-sm">
+                  <li><code>googleHits</code> contained NULL strings for newer/less famous actors</li>
+                  <li>Some normalized columns were completely empty</li>
+                  <li><strong>Solution:</strong> Used pandas <code>na_values=['NULL','null']</code> parameter + imputation with column means</li>
+                </ul>
+              </li>
+              <li><strong>Duplicate Records:</strong>
+                <ul class="list-disc ml-6 mt-1 text-sm">
+                  <li>Exact duplicate rows found (copy-paste errors in source data)</li>
+                  <li><strong>Solution:</strong> <code>df.drop_duplicates()</code> removed redundant entries</li>
+                </ul>
+              </li>
+              <li><strong>Invalid Values:</strong>
+                <ul class="list-disc ml-6 mt-1 text-sm">
+                  <li>Some actors had <code>movieCount = 0</code> (data collection errors)</li>
+                  <li><strong>Solution:</strong> Filtered out records where <code>movieCount <= 0</code> to avoid division errors</li>
+                </ul>
+              </li>
+              <li><strong>Column Name Inconsistencies:</strong>
+                <ul class="list-disc ml-6 mt-1 text-sm">
+                  <li>Source used <code>actorName</code> instead of <code>actor</code></li>
+                  <li><strong>Solution:</strong> Renamed columns for consistency: <code>df.rename(columns={'actorName':'actor'})</code></li>
+                </ul>
+              </li>
+            </ul>
+            
+            <h4 class="font-semibold mb-3">3.2 Feature Engineering Steps:</h4>
+            <ul class="space-y-2">
+              <li><strong>Computed avgRating:</strong> <code>avgRating = ratingSum / movieCount</code> for interpretable per-movie performance</li>
+              <li><strong>Normalized Scores:</strong> Rescaled all ranking columns from 0-10 scale to 0-1 for consistent KPI calculation</li>
+              <li><strong>KPI Derivation:</strong>
+                <ul class="list-disc ml-6 mt-1 text-sm">
+                  <li><code>fameScore = 0.5 × normalizedGoogleRank + 0.5 × normalizedMovieRank</code></li>
+                  <li><code>talentScore = normalizedRating</code></li>
+                  <li><code>balanceScore = 1 - |fameScore - talentScore|</code></li>
+                </ul>
+              </li>
+              <li><strong>Handled Edge Cases:</strong> Filled remaining NaNs with column means to maintain dataset size</li>
+            </ul>
+            
+            <h4 class="font-semibold mb-3 mt-4">3.3 Why These Cleaning Steps?</h4>
+            <p class="text-sm mb-2"><strong>Business Justification:</strong></p>
+            <ul class="list-disc ml-6 text-sm space-y-1">
+              <li><strong>NULL Handling:</strong> Missing Google hits often indicates newer actors—imputing with mean prevents bias against emerging talent</li>
+              <li><strong>Duplicate Removal:</strong> Prevents skewed statistics and incorrect "top 10" rankings</li>
+              <li><strong>Zero Movie Filter:</strong> Actors with zero films have no performance data—including them would corrupt averages</li>
+              <li><strong>Normalization:</strong> Different scales (Google hits in millions vs ratings 0-10) require standardization for fair KPI comparison</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="font-semibold text-lg mb-4 text-red-600">4. Dashboard Structure & Component Mapping</h3>
+          <div class="bg-gray-50 p-4 rounded-lg">
+            <h4 class="font-semibold mb-2">4.1 Layout Architecture:</h4>
+            <div class="overflow-x-auto mb-4">
+              <table class="min-w-full text-sm border">
+                <thead class="bg-red-100">
+                  <tr>
+                    <th class="px-3 py-2 text-left border">Component</th>
+                    <th class="px-3 py-2 text-left border">Purpose</th>
+                    <th class="px-3 py-2 text-left border">KPI Mapping</th>
+                    <th class="px-3 py-2 text-left border">Interactivity</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="border">
+                    <td class="px-3 py-2 font-medium border">KPI Metric Cards</td>
+                    <td class="px-3 py-2 border text-xs">At-a-glance summary statistics</td>
+                    <td class="px-3 py-2 border text-xs">All 3 KPIs + correlation</td>
+                    <td class="px-3 py-2 border text-xs">Updates with filters</td>
+                  </tr>
+                  <tr class="border bg-gray-50">
+                    <td class="px-3 py-2 font-medium border">Scatter Plot (Fame vs Talent)</td>
+                    <td class="px-3 py-2 border text-xs">Correlation visualization & outlier detection</td>
+                    <td class="px-3 py-2 border text-xs">Fame + Talent, colored by Balance</td>
+                    <td class="px-3 py-2 border text-xs">Hover tooltips, actor zoom, highlighting</td>
+                  </tr>
+                  <tr class="border">
+                    <td class="px-3 py-2 font-medium border">Top 10 Bar Charts (Side-by-Side)</td>
+                    <td class="px-3 py-2 border text-xs">Compare leaders in each dimension</td>
+                    <td class="px-3 py-2 border text-xs">Fame (left) vs Talent (right)</td>
+                    <td class="px-3 py-2 border text-xs">Filters update rankings</td>
+                  </tr>
+                  <tr class="border bg-gray-50">
+                    <td class="px-3 py-2 font-medium border">Correlation Analysis Panel</td>
+                    <td class="px-3 py-2 border text-xs">Statistical significance testing</td>
+                    <td class="px-3 py-2 border text-xs">Fame-Talent relationship (Pearson r)</td>
+                    <td class="px-3 py-2 border text-xs">Recalculates for filtered subset</td>
+                  </tr>
+                  <tr class="border">
+                    <td class="px-3 py-2 font-medium border">Actor Detail View</td>
+                    <td class="px-3 py-2 border text-xs">Drill-down to individual profiles</td>
+                    <td class="px-3 py-2 border text-xs">All 3 KPIs for selected actor</td>
+                    <td class="px-3 py-2 border text-xs">Dropdown selection, mini bar chart</td>
+                  </tr>
+                  <tr class="border bg-gray-50">
+                    <td class="px-3 py-2 font-medium border">Sidebar Filters</td>
+                    <td class="px-3 py-2 border text-xs">User-driven data exploration</td>
+                    <td class="px-3 py-2 border text-xs">Controls all views</td>
+                    <td class="px-3 py-2 border text-xs">Sliders, multi-select, instant updates</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h4 class="font-semibold mb-2">4.2 Interactivity Features:</h4>
+            <ul class="space-y-2">
+              <li><strong>Dynamic Filtering:</strong> All charts update simultaneously when sidebar filters change (movie count range, rating range, actor selection)</li>
+              <li><strong>Hover Tooltips:</strong> Rich information on mouseover—actor name, exact scores, average rating</li>
+              <li><strong>Drill-Down Detail:</strong> Click actor in dropdown to see individual profile with all KPIs</li>
+              <li><strong>Visual Highlighting:</strong> Toggle to mark actors above average in both metrics with gold star icons</li>
+              <li><strong>Actor Zoom:</strong> Select specific actor to highlight on scatter plot with larger marker</li>
+              <li><strong>Correlation Recalculation:</strong> Pearson correlation updates based on current filter selection</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="font-semibold text-lg mb-4 text-red-600">5. Design Choices & Rationale</h3>
+          <div class="bg-gray-50 p-4 rounded-lg">
+            <h4 class="font-semibold mb-3">5.1 Chart Type Selection:</h4>
+            <div class="space-y-3">
+              <div class="bg-white p-3 rounded border-l-4 border-blue-400">
+                <p class="font-medium mb-1">Scatter Plot for Fame vs Talent</p>
+                <p class="text-sm mb-2"><strong>Why chosen:</strong> Best for showing correlation between two continuous variables and identifying outliers</p>
+                <p class="text-sm"><strong>Alternatives considered:</strong> Heatmap (less intuitive for stakeholders), line plot (implies time-series)</p>
+              </div>
+              <div class="bg-white p-3 rounded border-l-4 border-green-400">
+                <p class="font-medium mb-1">Horizontal Bar Charts for Top 10 Rankings</p>
+                <p class="text-sm mb-2"><strong>Why chosen:</strong> Easy to read actor names on y-axis, facilitates left-right comparison</p>
+                <p class="text-sm"><strong>Alternatives considered:</strong> Vertical bars (harder to read names), table (less visual impact)</p>
+              </div>
+              <div class="bg-white p-3 rounded border-l-4 border-purple-400">
+                <p class="font-medium mb-1">Metric Cards for KPIs</p>
+                <p class="text-sm mb-2"><strong>Why chosen:</strong> Immediate understanding of key numbers, common dashboard pattern</p>
+                <p class="text-sm"><strong>Alternatives considered:</strong> Gauge charts (takes more space), sparklines (less clear for point-in-time values)</p>
+              </div>
+            </div>
+
+            <h4 class="font-semibold mb-3 mt-4">5.2 Color Scheme Design:</h4>
+            <ul class="space-y-2">
+              <li><strong>Gold (#D4AF37) for Talent:</strong> Evokes awards (Oscars, trophies), perceived as valuable and prestigious</li>
+              <li><strong>Red (#D72638) for Fame:</strong> Bold, attention-grabbing color that represents spotlight and celebrity culture</li>
+              <li><strong>Red-Yellow Gradient:</strong> Cinematic color palette reminiscent of Bollywood aesthetics (vibrant, warm)</li>
+              <li><strong>Sequential Reds for Balance:</strong> Continuous scale from low (light) to high (dark) for intuitive reading</li>
+              <li><strong>Accessibility Consideration:</strong> High contrast ratios between text and backgrounds for readability</li>
+            </ul>
+
+            <h4 class="font-semibold mb-3 mt-4">5.3 Layout Decisions:</h4>
+            <ul class="space-y-2">
+              <li><strong>Wide Layout:</strong> <code>st.set_page_config(layout='wide')</code> maximizes chart real estate on large screens</li>
+              <li><strong>Sidebar Filters:</strong> Keeps controls accessible without cluttering main view—industry standard for dashboards</li>
+              <li><strong>Progressive Disclosure:</strong> Overview metrics → detailed scatter → comparisons → individual profiles (general to specific)</li>
+              <li><strong>Horizontal Dividers:</strong> Clear visual separation between sections for scanability</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="font-semibold text-lg mb-4 text-red-600">6. KPI Selection & Business Justification</h3>
+          <div class="bg-gray-50 p-4 rounded-lg">
+            <h4 class="font-semibold mb-2">Why These Specific KPIs?</h4>
+            <ul class="space-y-3">
+              <li><strong>Fame Score (Popularity):</strong>
+                <ul class="list-disc ml-6 mt-1 text-sm">
+                  <li><strong>Business Need:</strong> Executives need to quantify "star power" for marketing and box office predictions</li>
+                  <li><strong>Formula Rationale:</strong> Equal weighting (50/50) of Google hits and movie count balances public interest with career longevity</li>
+                  <li><strong>Actionable Insight:</strong> High fame actors command higher salaries—is it justified?</li>
+                </ul>
+              </li>
+              <li><strong>Talent Score (Performance):</strong>
+                <ul class="list-disc ml-6 mt-1 text-sm">
+                  <li><strong>Business Need:</strong> Quality matters for critical reception, awards, and long-term franchise value</li>
+                  <li><strong>Formula Rationale:</strong> Average rating normalizes for prolific vs selective actors (prevents bias)</li>
+                  <li><strong>Actionable Insight:</strong> High talent actors may be undervalued if fame is low</li>
+                </ul>
+              </li>
+              <li><strong>Balance Score (Alignment):</strong>
+                <ul class="list-disc ml-6 mt-1 text-sm">
+                  <li><strong>Business Need:</strong> Identify market inefficiencies—overrated vs underrated actors</li>
+                  <li><strong>Formula Rationale:</strong> Absolute difference penalizes misalignment in either direction</li>
+                  <li><strong>Actionable Insight:</strong> Low balance = opportunity (hidden gem or overpriced celebrity)</li>
+                </ul>
+              </li>
+            </ul>
+
+            <h4 class="font-semibold mb-2 mt-4">Alternative Metrics Considered:</h4>
+            <ul class="list-disc ml-6 text-sm space-y-1">
+              <li><strong>Box Office Revenue:</strong> Not included—highly dependent on budget, genre, and release timing (confounding factors)</li>
+              <li><strong>Social Media Followers:</strong> Considered but rejected—transient metric, bot inflation issues</li>
+              <li><strong>Awards Count:</strong> Not available in dataset—would be valuable addition in future versions</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="font-semibold text-lg mb-4 text-red-600">7. Technology Stack & Implementation</h3>
+          <div class="bg-gray-50 p-4 rounded-lg">
+            <ul class="space-y-2">
+              <li><strong>Framework:</strong> Streamlit 1.x (Python-based dashboard framework)
+                <ul class="list-disc ml-6 text-sm mt-1">
+                  <li><strong>Why Streamlit:</strong> Rapid prototyping, built-in caching, easy deployment, native support for Plotly</li>
+                  <li><strong>Alternative Considered:</strong> Dash (more complex), Tableau (not code-based, less customizable)</li>
+                </ul>
+              </li>
+              <li><strong>Visualization:</strong> Plotly Express (interactive charts)
+                <ul class="list-disc ml-6 text-sm mt-1">
+                  <li><strong>Why Plotly:</strong> Built-in interactivity (hover, zoom), publication-quality graphics</li>
+                  <li><strong>Alternative Considered:</strong> Matplotlib (static), Altair (less feature-rich)</li>
+                </ul>
+              </li>
+              <li><strong>Data Processing:</strong> Pandas + NumPy (data manipulation and cleaning)</li>
+              <li><strong>Statistics:</strong> SciPy (Pearson correlation calculation)</li>
+              <li><strong>Deployment:</strong> Streamlit Cloud (free hosting, GitHub integration, automatic updates)</li>
+              <li><strong>Version Control:</strong> Git/GitHub (code repository and deployment source)</li>
+            </ul>
+
+            <h4 class="font-semibold mb-2 mt-4">Deployment Process:</h4>
+            <ol class="list-decimal ml-6 text-sm space-y-1">
+              <li>Push code and data to GitHub repository</li>
+              <li>Connect Streamlit Cloud to GitHub repo</li>
+              <li>Configure <code>requirements.txt</code> for dependency management</li>
+              <li>Auto-deploy on every commit to main branch</li>
+              <li>Live at: <a href="https://bollywood.streamlit.app/" class="text-blue-600 hover:underline">https://bollywood.streamlit.app/</a></li>
+            </ol>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="font-semibold text-lg mb-4 text-red-600">8. Reflection: What Worked, Challenges, & Improvements</h3>
+          <div class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400">
+            <h4 class="font-semibold mb-2">✅ What Worked Well:</h4>
+            <ul class="space-y-2">
+              <li><strong>Streamlit's Simplicity:</strong> Built entire dashboard in ~300 lines of Python—rapid development cycle</li>
+              <li><strong>KPI Framework:</strong> Three simple metrics provided comprehensive insight without overwhelming users</li>
+              <li><strong>Filter Responsiveness:</strong> All visualizations updating simultaneously created satisfying user experience</li>
+              <li><strong>Cinematic Design:</strong> Gold/red color scheme resonated with stakeholders—felt "on-brand" for Bollywood analysis</li>
+              <li><strong>Data Caching:</strong> <code>@st.cache_data</code> decorator made repeated interactions fast</li>
+            </ul>
+
+            <h4 class="font-semibold mb-2 mt-4">⚠️ Challenges Faced:</h4>
+            <ul class="space-y-2">
+              <li><strong>Data Quality Issues:</strong> NULL values and inconsistent column names required extensive cleaning (20% of development time)</li>
+              <li><strong>Scale Normalization:</strong> Original data on 0-10 scale needed conversion to 0-1—discovered through testing</li>
+              <li><strong>Hover Information:</strong> Default Plotly tooltips showed too much data—required custom <code>hovertemplate</code> formatting</li>
+              <li><strong>Performance:</strong> Initial version re-filtered entire dataset on every interaction—fixed with strategic caching</li>
+              <li><strong>Mobile Responsiveness:</strong> Scatter plot difficult to read on small screens—wide layout assumption</li>
+            </ul>
+
+            <h4 class="font-semibold mb-2 mt-4">🚀 Future Improvements:</h4>
+            <ul class="space-y-2">
+              <li><strong>Time-Series Analysis:</strong> Add year-over-year tracking to show how fame/talent evolves over actor careers</li>
+              <li><strong>Social Media Integration:</strong> Real-time Twitter/Instagram follower counts for more current fame metrics</li>
+              <li><strong>Predictive Modeling:</strong> ML model to predict future fame based on current talent trajectory</li>
+              <li><strong>Comparative Analytics:</strong> Side-by-side comparison mode for up to 3 selected actors</li>
+              <li><strong>Export Functionality:</strong> Allow users to download filtered datasets as CSV for external analysis</li>
+              <li><strong>Advanced Filters:</strong> Genre, language, decade—enable more nuanced exploration</li>
+              <li><strong>Mobile Optimization:</strong> Responsive layout that adapts charts for smaller screens</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="font-semibold text-lg mb-4 text-red-600">9. Code & Data Access</h3>
+          <div class="bg-gray-50 p-4 rounded-lg">
+            <ul class="space-y-2">
+              <li><strong>Live Dashboard:</strong> <a href="https://bollywood.streamlit.app/" class="text-blue-600 hover:underline">https://bollywood.streamlit.app/</a></li>
+              <li><strong>Source Code:</strong> <code>streamlit_app.py</code> (complete dashboard implementation)</li>
+              <li><strong>Data Exploration Notebook:</strong> <code>bollyDataExploration.ipynb</code> (initial EDA and cleaning process)</li>
+              <li><strong>Dataset:</strong> <code>BollywoodActorRanking.csv</code> (200+ actors, 9 features)</li>
+              <li><strong>Environment:</strong> Python 3.9+, Streamlit 1.x, Plotly 5.x, Pandas 2.x</li>
+              <li><strong>Installation:</strong> <code>pip install streamlit pandas plotly scipy</code></li>
+              <li><strong>Local Run:</strong> <code>streamlit run streamlit_app.py</code></li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="font-semibold text-lg mb-4 text-red-600">10. References & Attribution</h3>
+          <div class="bg-gray-50 p-4 rounded-lg">
+            <ul class="space-y-2">
+              <li><strong>Dataset Sources:</strong>
+                <ul class="list-disc ml-6 text-sm mt-1">
+                  <li>IMDb ratings and movie counts (public API)</li>
+                  <li>Google Trends data (search volume proxy for fame)</li>
+                  <li>Compiled dataset: <code>BollywoodActorRanking.csv</code></li>
+                </ul>
+              </li>
+              <li><strong>Libraries & Frameworks:</strong>
+                <ul class="list-disc ml-6 text-sm mt-1">
+                  <li>Streamlit Documentation: <a href="https://docs.streamlit.io/" class="text-blue-600 hover:underline">https://docs.streamlit.io/</a></li>
+                  <li>Plotly Express API: <a href="https://plotly.com/python/plotly-express/" class="text-blue-600 hover:underline">https://plotly.com/python/plotly-express/</a></li>
+                  <li>Pandas Data Cleaning Guide: <a href="https://pandas.pydata.org/" class="text-blue-600 hover:underline">https://pandas.pydata.org/</a></li>
+                  <li>SciPy Statistics Module: <a href="https://docs.scipy.org/doc/scipy/reference/stats.html" class="text-blue-600 hover:underline">scipy.stats</a></li>
+                </ul>
+              </li>
+              <li><strong>Design Inspiration:</strong>
+                <ul class="list-disc ml-6 text-sm mt-1">
+                  <li>Dashboard design principles from "Storytelling with Data" (Cole Nussbaumer Knaflic)</li>
+                  <li>Color theory for data visualization (ColorBrewer)</li>
+                </ul>
+              </li>
+              <li><strong>AI Tool Usage:</strong>
+                <ul class="list-disc ml-6 text-sm mt-1">
+                  <li><strong>ChatGPT:</strong> Used for code scaffolding, documentation templates, and debugging assistance</li>
+                  <li><strong>Specific Applications:</strong> Streamlit syntax queries, Plotly customization examples, Markdown formatting</li>
+                  <li><strong>Note:</strong> All final code, design decisions, and analysis were human-authored and validated</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="font-semibold text-lg mb-4 text-red-600">11. Reproducibility Instructions</h3>
+          <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
+            <h4 class="font-semibold mb-2">To Reproduce This Dashboard Locally:</h4>
+            <ol class="list-decimal ml-6 space-y-2">
+              <li><strong>Clone Repository:</strong> Download all files (<code>streamlit_app.py</code>, <code>BollywoodActorRanking.csv</code>)</li>
+              <li><strong>Install Dependencies:</strong> <code>pip install streamlit pandas numpy plotly scipy</code></li>
+              <li><strong>Run Dashboard:</strong> <code>streamlit run streamlit_app.py</code></li>
+              <li><strong>Access:</strong> Browser automatically opens to <code>localhost:8501</code></li>
+              <li><strong>Explore:</strong> Use sidebar filters and interactive components</li>
+            </ol>
+            <p class="mt-3 text-sm"><strong>Note:</strong> All random seeds and data processing steps are deterministic—same inputs produce identical outputs.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-gradient-to-r from-yellow-600 to-red-600 text-white py-4 text-center mt-8">
+    <p>&copy; 2025 Muhamed Ahmad. All rights reserved.</p>
+  </footer>
+</body>
+</html>
