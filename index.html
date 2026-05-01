@@ -1,184 +1,596 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Muhamed Ahmad | Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body {
-      background: #1e1e1e;
-      color: #d4d4d4;
-    }
-    .vsc-header {
-      background: #23272e;
-    }
-    .vsc-card {
-      background: #23272e;
-      color: #22223b;
-    }
-    .vsc-blurb {
-      color: #22223b;
-    }
-    .vsc-profile {
-      box-shadow: 0 0 0 4px #23272e;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muhamed Ahmad — Data Analyst</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0e1117;
+    --surface: #161b27;
+    --surface2: #1c2333;
+    --border: rgba(255,255,255,0.07);
+    --border2: rgba(255,255,255,0.12);
+    --text: #e8eaf0;
+    --muted: #8892a4;
+    --dim: #4a5568;
+    --accent: #4f9cf9;
+    --accent2: #a78bfa;
+    --green: #34d399;
+    --amber: #fbbf24;
+    --coral: #fb7185;
+    --font-display: 'DM Serif Display', serif;
+    --font-body: 'Instrument Sans', sans-serif;
+    --font-mono: 'DM Mono', monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ── Nav ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px;
+    height: 56px;
+    background: rgba(14,17,23,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--border);
+  }
+  .nav-logo { font-family: var(--font-mono); font-size: 13px; color: var(--muted); letter-spacing: 0.04em; }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 32px; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 13px; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--text); }
+
+  /* ── Hero ── */
+  .hero {
+    display: flex; align-items: center; gap: 28px;
+    padding: 72px 48px 56px;
+    max-width: 900px; margin: 0 auto;
+  }
+  .avatar-wrap {
+    flex-shrink: 0;
+    width: 88px; height: 88px;
+    border-radius: 50%;
+    border: 1.5px solid var(--border2);
+    overflow: hidden;
+    background: var(--surface2);
+  }
+  .avatar-wrap img { width: 100%; height: 100%; object-fit: cover; }
+  .avatar-initials {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-size: 28px; color: var(--accent);
+  }
+  .hero-text h1 {
+    font-family: var(--font-display);
+    font-size: 38px; font-weight: 400;
+    color: var(--text);
+    line-height: 1.15;
+    margin-bottom: 6px;
+  }
+  .hero-sub {
+    font-family: var(--font-mono); font-size: 13px; color: var(--muted);
+    letter-spacing: 0.04em; margin-bottom: 4px;
+  }
+  .hero-sub span { color: var(--accent); }
+
+  /* ── Section headings ── */
+  .section { max-width: 900px; margin: 0 auto; padding: 0 48px 64px; }
+  .section-label {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em;
+    color: var(--dim); text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .section h2 {
+    font-family: var(--font-display); font-size: 26px; font-weight: 400;
+    color: var(--text); margin-bottom: 16px;
+  }
+  .about-body { font-size: 14px; color: var(--muted); line-height: 1.75; max-width: 620px; }
+
+  /* ── Project explorer (sidebar + panel) ── */
+  .project-explorer {
+    display: flex;
+    border: 0.5px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 24px;
+    min-height: 480px;
+  }
+
+  /* sidebar */
+  .proj-sidebar {
+    width: 210px; min-width: 210px;
+    border-right: 0.5px solid var(--border);
+    display: flex; flex-direction: column;
+    padding: 12px 0;
+  }
+  .proj-tab {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 11px 16px;
+    cursor: pointer;
+    border-left: 2px solid transparent;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .proj-tab:hover { background: var(--surface2); }
+  .proj-tab.active {
+    background: var(--surface2);
+    border-left-color: var(--accent);
+  }
+  .tab-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+  .tab-text { display: flex; flex-direction: column; }
+  .tab-name { font-size: 13px; font-weight: 500; color: var(--muted); line-height: 1.3; }
+  .proj-tab.active .tab-name { color: var(--text); }
+  .tab-sub { font-size: 11px; color: var(--dim); margin-top: 2px; line-height: 1.3; }
+
+  /* panel */
+  .proj-panels { flex: 1; display: flex; flex-direction: column; }
+  .proj-panel { display: none; flex-direction: column; height: 100%; }
+  .proj-panel.active { display: flex; }
+
+  /* panel topbar */
+  .panel-topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 10px 20px;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .panel-topbar-left { display: flex; align-items: center; gap: 10px; }
+  .panel-badge {
+    font-size: 10.5px; font-weight: 500; letter-spacing: 0.07em;
+    padding: 3px 8px; border-radius: 4px; text-transform: uppercase;
+    font-family: var(--font-mono);
+  }
+  .badge-analyze { background: rgba(79,156,249,0.15); color: #4f9cf9; }
+  .badge-ml      { background: rgba(52,211,153,0.15);  color: #34d399; }
+  .badge-safety  { background: rgba(251,191,36,0.15);  color: #fbbf24; }
+  .badge-dash    { background: rgba(167,139,250,0.15); color: #a78bfa; }
+  .badge-kaggle  { background: rgba(251,113,133,0.15); color: #fb7185; }
+  .panel-meta { font-size: 12px; color: var(--dim); }
+  .panel-status { display: flex; align-items: center; gap: 5px; font-size: 12px; color: #34d399; font-weight: 500; }
+  .status-dot { width: 7px; height: 7px; border-radius: 50%; background: #34d399; }
+
+  /* panel card */
+  .panel-card {
+    flex: 1;
+    display: flex; flex-direction: column;
+  }
+  .card-head { padding: 20px 22px 14px; border-bottom: 0.5px solid var(--border); }
+  .card-title-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+  .card-title { font-size: 15px; font-weight: 600; color: var(--text); line-height: 1.3; }
+  .card-season { font-family: var(--font-mono); font-size: 10.5px; color: var(--dim); white-space: nowrap; margin-top: 3px; }
+  .card-desc { font-size: 13px; color: var(--muted); line-height: 1.65; }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 12px; }
+  .tag {
+    font-size: 10.5px; font-weight: 500; padding: 2px 7px;
+    border-radius: 4px; font-family: var(--font-mono);
+  }
+  .t-sport    { background: rgba(251,191,36,0.12);  color: #fbbf24; }
+  .t-python   { background: rgba(79,156,249,0.12);  color: #4f9cf9; }
+  .t-stats    { background: rgba(167,139,250,0.12); color: #a78bfa; }
+  .t-ml       { background: rgba(52,211,153,0.12);  color: #34d399; }
+  .t-finance  { background: rgba(251,113,133,0.12); color: #fb7185; }
+  .t-data     { background: rgba(79,156,249,0.12);  color: #4f9cf9; }
+  .t-safety   { background: rgba(251,191,36,0.12);  color: #fbbf24; }
+  .t-dash     { background: rgba(167,139,250,0.12); color: #a78bfa; }
+  .t-streamlit{ background: rgba(52,211,153,0.12);  color: #34d399; }
+  .t-inter    { background: rgba(251,113,133,0.12); color: #fb7185; }
+  .t-regress  { background: rgba(52,211,153,0.12);  color: #34d399; }
+  .t-kaggle   { background: rgba(251,191,36,0.12);  color: #fbbf24; }
+
+  /* metrics row */
+  .metrics-row {
+    display: grid; grid-template-columns: repeat(3, minmax(0,1fr));
+    gap: 10px; padding: 16px 22px;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .metric { background: var(--surface2); border-radius: 8px; padding: 10px 12px; }
+  .metric-label { font-size: 10.5px; color: var(--dim); margin-bottom: 4px; font-family: var(--font-mono); }
+  .metric-val { font-size: 17px; font-weight: 500; color: var(--text); }
+  .metric-sub { font-size: 10.5px; color: var(--dim); margin-top: 2px; }
+
+  /* insights */
+  .card-body { padding: 14px 22px; flex: 1; border-bottom: 0.5px solid var(--border); }
+  .insights-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; color: var(--dim); text-transform: uppercase; margin-bottom: 8px; }
+  .insight { display: flex; align-items: flex-start; gap: 8px; font-size: 12.5px; color: var(--muted); padding: 4px 0; line-height: 1.45; }
+  .ins-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--dim); flex-shrink: 0; margin-top: 6px; }
+
+  /* links footer */
+  .card-foot { padding: 14px 22px; display: flex; gap: 10px; flex-wrap: wrap; }
+  .card-link {
+    font-size: 12.5px; font-weight: 500; color: var(--text);
+    background: transparent; border: 0.5px solid var(--border2);
+    border-radius: 8px; padding: 7px 14px; text-decoration: none;
+    transition: background 0.15s;
+  }
+  .card-link:hover { background: var(--surface2); }
+  .card-link.primary { background: var(--surface2); }
+  .card-link.secondary { color: var(--muted); }
+
+  /* panel footer bar */
+  .panel-footbar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 8px 20px;
+    border-top: 0.5px solid var(--border);
+  }
+  .panel-footbar-meta { font-family: var(--font-mono); font-size: 11px; color: var(--dim); }
+  .panel-footbar-src  { font-family: var(--font-mono); font-size: 11px; color: var(--dim); }
+
+  @keyframes panelIn {
+    from { opacity: 0; transform: translateX(8px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+  .proj-panel.active { animation: panelIn 0.2s ease both; }
+
+  /* ── Contact ── */
+  .contact-grid { display: flex; flex-direction: column; gap: 8px; margin-top: 16px; }
+  .contact-row { display: flex; align-items: center; gap: 10px; font-size: 13px; }
+  .contact-label { font-family: var(--font-mono); font-size: 11px; color: var(--dim); letter-spacing: 0.06em; width: 52px; }
+  .contact-row a { color: var(--accent); text-decoration: none; }
+  .contact-row a:hover { text-decoration: underline; }
+
+  /* ── Divider ── */
+  .divider { height: 0.5px; background: var(--border); max-width: 900px; margin: 0 auto 48px; }
+
+  /* ── Footer ── */
+  footer {
+    border-top: 0.5px solid var(--border);
+    padding: 20px 48px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-mono); font-size: 11px; color: var(--dim);
+    letter-spacing: 0.06em;
+  }
+
+  /* ── Fade-in ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero         { animation: fadeUp 0.5s ease both; }
+  .section      { animation: fadeUp 0.5s ease 0.1s both; }
+  .card         { animation: fadeUp 0.4s ease both; }
+  .card:nth-child(2) { animation-delay: 0.05s; }
+  .card:nth-child(3) { animation-delay: 0.10s; }
+  .card:nth-child(4) { animation-delay: 0.15s; }
+  .card:nth-child(5) { animation-delay: 0.20s; }
+</style>
 </head>
-<body class="bg-[#1e1e1e] text-[#d4d4d4]">
-  <header class="vsc-header text-white py-8 shadow">
-    <div class="container mx-auto px-4 flex items-center justify-center">
-      <img src="images/Fish.png" alt="Profile" class="vsc-profile w-24 h-24 rounded-full mr-6 object-cover border-4 border-[#23272e]" />
-      <div class="text-left">
-        <h1 class="text-4xl font-bold mb-2">Muhamed Ahmad</h1>
-        <p class="text-xl">Data Analyst | Python | Machine Learning</p>
+<body>
+
+<nav>
+  <div class="nav-logo"><span>~/</span>muhamed530</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="avatar-wrap">
+    <img src="images/Fish.png" alt="Profile" />
+  </div>
+  <div class="hero-text">
+    <h1>Muhamed Ahmad</h1>
+    <div class="hero-sub">Data Analyst <span>|</span> Python <span>|</span> Machine Learning</div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<section class="section" id="about">
+  <div class="section-label">01 — about me</div>
+  <h2>Who I am</h2>
+  <p class="about-body">I am a data analyst passionate about uncovering insights from complex datasets. Skilled in Python, machine learning, and data visualization, I turn raw data into actionable business intelligence.</p>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="projects">
+  <div class="section-label">02 — work</div>
+  <h2>Projects</h2>
+
+  <div class="project-explorer">
+
+    <!-- ── Sidebar tabs ── -->
+    <div class="proj-sidebar">
+      <div class="proj-tab active" data-target="p1">
+        <span class="tab-icon">⚽</span>
+        <div class="tab-text">
+          <span class="tab-name">Referee Bias</span>
+          <span class="tab-sub">Sports analytics · stats</span>
+        </div>
+      </div>
+      <div class="proj-tab" data-target="p2">
+        <span class="tab-icon">🏦</span>
+        <div class="tab-text">
+          <span class="tab-name">Loan Default</span>
+          <span class="tab-sub">ML · finance</span>
+        </div>
+      </div>
+      <div class="proj-tab" data-target="p3">
+        <span class="tab-icon">⚠️</span>
+        <div class="tab-text">
+          <span class="tab-name">Accident Analysis</span>
+          <span class="tab-sub">Charlotte, NC · public safety</span>
+        </div>
+      </div>
+      <div class="proj-tab" data-target="p4">
+        <span class="tab-icon">🎬</span>
+        <div class="tab-text">
+          <span class="tab-name">Bollywood Dashboard</span>
+          <span class="tab-sub">Streamlit · interactive</span>
+        </div>
+      </div>
+      <div class="proj-tab" data-target="p5">
+        <span class="tab-icon">🏠</span>
+        <div class="tab-text">
+          <span class="tab-name">House Prices</span>
+          <span class="tab-sub">Kaggle · regression</span>
+        </div>
       </div>
     </div>
-    <nav class="mt-4 text-center">
-      <a href="#about" class="mx-2 hover:underline">About</a>
-      <a href="#projects" class="mx-2 hover:underline">Projects</a>
-      <a href="#contact" class="mx-2 hover:underline">Contact</a>
-    </nav>
-  </header>
 
-  <main class="container mx-auto px-4 py-10">
-    <section id="about" class="mb-10">
-      <h2 class="text-2xl font-semibold mb-4">About Me</h2>
-      <p class="text-lg">
-        I am a data analyst passionate about uncovering insights from complex datasets. Skilled in Python, machine learning, and data visualization, I turn raw data into actionable business intelligence.
-      </p>
-    </section>
+    <!-- ── Panels ── -->
+    <div class="proj-panels">
 
-    <section id="projects" class="mb-10">
-      <h2 class="text-2xl font-semibold mb-4">Projects</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Referee Bias Analysis Project -->
-        <div class="vsc-card p-6 rounded-lg shadow">
-          <h3 class="text-lg font-bold mb-2 vsc-blurb" style="color:#d4d4d4;">⚽ Referee Bias Analysis</h3>
-          <p class="mb-2 vsc-blurb" style="color:#d4d4d4;">Statistical investigation of referee influence in Barcelona vs Real Madrid matches using 2024-25 season data. Tests fan perceptions against data reality.</p>
-          <div class="mb-2">
-            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Sports Analytics</span>
-            <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded ml-1">Python</span>
-            <span class="bg-orange-100 text-orange-800 text-xs font-medium px-2.5 py-0.5 rounded ml-1">Statistics</span>
+      <!-- Panel 1: Referee Bias -->
+      <div class="proj-panel active" id="p1">
+        <div class="panel-topbar">
+          <div class="panel-topbar-left">
+            <span class="panel-badge badge-analyze">Analyze</span>
+            <span class="panel-meta">referee-bias · 2024–25 season</span>
           </div>
-          <h4 class="font-semibold text-sm mb-2 vsc-blurb">🔍 Key Insights:</h4>
-          <div class="bg-gray-50 p-3 rounded-lg mb-3">
-            <ul class="text-xs text-gray-600 space-y-1">
-              <li>• No statistically significant referee bias detected</li>
-              <li>• Home advantage stronger predictor than referee assignment</li>
-              <li>• Fan perception of bias exceeds measured reality</li>
-              <li>• Small sample sizes limit bias detection power</li>
-            </ul>
+          <div class="panel-status"><span class="status-dot"></span>Published</div>
+        </div>
+        <div class="panel-card">
+          <div class="card-head">
+            <div class="card-title-row">
+              <span class="card-title">Referee Bias Analysis</span>
+              <span class="card-season">2024–25</span>
+            </div>
+            <div class="card-desc">Statistical investigation of referee influence in Barcelona vs Real Madrid matches using 2024–25 season data. Tests fan perceptions against data reality.</div>
+            <div class="tag-row">
+              <span class="tag t-sport">Sports Analytics</span>
+              <span class="tag t-python">Python</span>
+              <span class="tag t-stats">Statistics</span>
+            </div>
           </div>
-          <div class="space-y-1">
-            <p><a href="projects/referee-bias/rb_analysis.html" target="_blank" class="text-blue-600 hover:underline">View Jupyter Analysis →</a></p>
-            <p><a href="projects/referee-bias/referee-bias-detailed.html" target="_blank" class="text-blue-600 hover:underline font-semibold">📖 Read Full Story & Technical Report →</a></p>
+          <div class="metrics-row">
+            <div class="metric"><div class="metric-label">Matches</div><div class="metric-val">38</div><div class="metric-sub">El Clásico</div></div>
+            <div class="metric"><div class="metric-label">Bias detected</div><div class="metric-val">None</div><div class="metric-sub">p &gt; 0.05</div></div>
+            <div class="metric"><div class="metric-label">Top predictor</div><div class="metric-val">Home</div><div class="metric-sub">advantage</div></div>
+          </div>
+          <div class="card-body">
+            <div class="insights-label">Key findings</div>
+            <div class="insight"><span class="ins-dot"></span><strong>No statistical bias detected:</strong> p-value > 0.05 across 38 El Clásico matches</div>
+            <div class="insight"><span class="ins-dot"></span><strong>Home advantage dominates:</strong> Stronger predictor than referee assignment alone</div>
+            <div class="insight"><span class="ins-dot"></span><strong>Perception vs reality:</strong> Fan perception of bias exceeds measured evidence</div>
+          </div>
+          <div class="card-foot">
+            <a class="card-link primary" href="https://muhamed530.github.io/projects/referee-bias/rb_analysis.html" target="_blank">View Jupyter Analysis →</a>
+            <a class="card-link secondary" href="https://muhamed530.github.io/projects/referee-bias/referee-bias-detailed.html" target="_blank">📖 Read Full Story &amp; Technical Report →</a>
           </div>
         </div>
-        <!-- Loan Default Prediction Project -->
-        <div class="vsc-card p-6 rounded-lg shadow">
-          <h3 class="text-lg font-bold mb-2 vsc-blurb" style="color:#d4d4d4;">🏦 Loan Default Prediction</h3>
-          <p class="mb-2 vsc-blurb" style="color:#d4d4d4;">Machine learning classification models to predict loan defaults using LendingClub data (2.26M+ records). Compares Random Forest vs Logistic Regression for financial risk assessment.</p>
-          <div class="mb-2">
-            <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded">Machine Learning</span>
-            <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded ml-1">Python</span>
-            <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded ml-1">Finance</span>
-          </div>
-          <h4 class="font-semibold text-sm mb-2 vsc-blurb">🎯 Key Insights:</h4>
-          <div class="bg-gray-50 p-3 rounded-lg mb-3">
-            <ul class="text-xs text-gray-600 space-y-1">
-              <li>• Credit grades most predictive feature for default risk</li>
-              <li>• Random Forest outperforms Logistic Regression</li>
-              <li>• Interest rates and debt-to-income ratios key indicators</li>
-              <li>• Ethical AI considerations in financial lending</li>
-            </ul>
-          </div>
-          <div class="space-y-1">
-            <p><a href="projects/loan-prediction/loan-prediction.html" target="_blank" class="text-blue-600 hover:underline">View Jupyter Analysis →</a></p>
-            <p><a href="projects/loan-prediction/loan-prediction-detailed.html" target="_blank" class="text-blue-600 hover:underline font-semibold">📖 Read Full Story & Technical Report →</a></p>
-          </div>
-        </div>
-        <!-- Accident Analysis Project -->
-        <div class="vsc-card p-6 rounded-lg shadow">
-          <h3 class="text-lg font-bold mb-2 vsc-blurb" style="color:#d4d4d4;">🚦 Accident Analysis: Charlotte, NC</h3>
-          <p class="mb-2 vsc-blurb" style="color:#d4d4d4;">Traffic accident pattern analysis using Charlotte, NC data (2018-2019). Features comprehensive data storytelling and technical documentation.</p>
-          <div class="mb-2">
-            <span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded">Data Analysis</span>
-            <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded ml-1">Python</span>
-            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded ml-1">Public Safety</span>
-          </div>
-          <h4 class="font-semibold text-sm mb-2 vsc-blurb">📊 Key Insights:</h4>
-          <div class="grid grid-cols-2 gap-2 mb-3">
-            <img src="images/Accident_heatmap.png" alt="Rush Hour Patterns" class="rounded" style="max-width:100%;height:auto;" />
-            <img src="images/Accidents_by_season.png" alt="Seasonal Trends" class="rounded" style="max-width:100%;height:auto;" />
-          </div>
-          <ul class="text-xs text-gray-600 space-y-1 mb-2">
-            <li>• Rush hours (7-9 AM, 4-6 PM) show highest accident rates</li>
-            <li>• Fall/winter see significant spikes in crashes</li>
-            <li>• Rear-end collisions dominate accident types</li>
-          </ul>
-          <div class="space-y-1">
-            <p><a href="projects/accident-analysis/accident_analysis.html" target="_blank" class="text-blue-600 hover:underline">View Jupyter Analysis →</a></p>
-            <p><a href="projects/accident-analysis/accident-analysis-detailed.html" target="_blank" class="text-blue-600 hover:underline font-semibold">📖 Read Full Story & Technical Report →</a></p>
-          </div>
-        </div>
-
-        <!-- Bollywood Dashboard Project -->
-        <div class="vsc-card p-6 rounded-lg shadow">
-          <h3 class="text-lg font-bold mb-2 vsc-blurb" style="color:#d4d4d4;">🎥 Bollywood Fame vs Talent Dashboard</h3>
-          <p class="mb-2 vsc-blurb" style="color:#d4d4d4;">Interactive Streamlit dashboard analyzing alignment between fame and talent for 200+ Bollywood actors. Features KPI tracking, filters, and comparative analytics.</p>
-          <div class="mb-2">
-            <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">Dashboard</span>
-            <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded ml-1">Streamlit</span>
-            <span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded ml-1">Interactive</span>
-          </div>
-          <h4 class="font-semibold text-sm mb-2 vsc-blurb">🎯 Key Features:</h4>
-          <div class="bg-gray-50 p-3 rounded-lg mb-3">
-            <ul class="text-xs text-gray-600 space-y-1">
-              <li>• Interactive filters for movie count & rating ranges</li>
-              <li>• 3 KPIs: Fame Score, Talent Score, Balance Score</li>
-              <li>• Scatter plots with drill-down actor profiles</li>
-              <li>• Top 10 comparisons and correlation analysis</li>
-            </ul>
-          </div>
-          <div class="space-y-1">
-            <p><a href="https://bollywood.streamlit.app/" target="_blank" class="text-blue-600 hover:underline font-semibold">🚀 Launch Live Dashboard →</a></p>
-            <p><a href="projects/bollywood-dashboard/bollywood-dashboard-detailed.html" target="_blank" class="text-blue-600 hover:underline">📖 Read Full Story & Technical Report →</a></p>
-          </div>
-        </div>
-        <!-- Kaggle House Prices Project (added) -->
-        <div class="vsc-card p-6 rounded-lg shadow">
-          <h3 class="text-lg font-bold mb-2 vsc-blurb" style="color:#d4d4d4;">🏠 Kaggle — House Prices (Project 3)</h3>
-          <p class="mb-2 vsc-blurb" style="color:#d4d4d4;">Regression project using the Kaggle 'House Prices - Advanced Regression Techniques' dataset. Includes three experiments: baseline linear regression, improved preprocessing with linear models, and Ridge + RandomForest ensemble with submission generation.</p>
-          <div class="mb-2">
-            <span class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded">Regression</span>
-            <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded ml-1">Python</span>
-            <span class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded ml-1">Kaggle</span>
-          </div>
-          <h4 class="font-semibold text-sm mb-2 vsc-blurb">📌 Key Highlights:</h4>
-          <div class="bg-gray-50 p-3 rounded-lg mb-3">
-            <ul class="text-xs text-gray-600 space-y-1">
-              <li>• Log-transform target and pipeline-safe preprocessing</li>
-              <li>• Ridge regularization + RandomForest ensemble</li>
-              <li>• Submission generation <code>submission.csv</code></li>
-            </ul>
-          </div>
-          <div class="space-y-1">
-            <p><a href="projects/Kaggle%20Prediction%20Competition/project3_house_prices.ipynb" target="_blank" class="text-blue-600 hover:underline">View Notebook →</a></p>
-            <p><a href="projects/Kaggle%20Prediction%20Competition/kaggle-prediction-competition-detailed.html" target="_blank" class="text-blue-600 hover:underline font-semibold">📖 Read Full Story & Technical Report →</a></p>
-          </div>
+        <div class="panel-footbar">
+          <span class="panel-footbar-meta">38 matches · hypothesis testing · pandas</span>
+          <span class="panel-footbar-src">source: fbref → notebook</span>
         </div>
       </div>
-    </section>
-    <section id="contact" class="mb-10">
-      <h2 class="text-2xl font-semibold mb-4">Contact</h2>
-      <p class="text-lg mb-2">Email: <a href="mailto:Muhamed.Ahmad530@gmail.com" class="text-blue-600 hover:underline">Muhamed.Ahmad530@gmail.com</a></p>
-      <p class="text-lg">GitHub: <a href="https://github.com/Muhamed530" class="text-blue-600 hover:underline">Muhamed530</a></p>
-    </section>
-  </main>
-  <footer class="vsc-header text-white py-4 text-center">
-  &copy; 2025 Muhamed Ahmad. All rights reserved. • Updated Sept 2025
-  </footer>
+
+      <!-- Panel 2: Loan Default -->
+      <div class="proj-panel" id="p2">
+        <div class="panel-topbar">
+          <div class="panel-topbar-left">
+            <span class="panel-badge badge-ml">ML Model</span>
+            <span class="panel-meta">loan-default · LendingClub 2.26M+</span>
+          </div>
+          <div class="panel-status"><span class="status-dot"></span>Published</div>
+        </div>
+        <div class="panel-card">
+          <div class="card-head">
+            <div class="card-title-row">
+              <span class="card-title">Loan Default Prediction</span>
+            </div>
+            <div class="card-desc">Machine learning classification models to predict loan defaults using LendingClub data (2.26M+ records). Compares Random Forest vs Logistic Regression for financial risk assessment.</div>
+            <div class="tag-row">
+              <span class="tag t-ml">Machine Learning</span>
+              <span class="tag t-python">Python</span>
+              <span class="tag t-finance">Finance</span>
+            </div>
+          </div>
+          <div class="metrics-row">
+            <div class="metric"><div class="metric-label">Records</div><div class="metric-val">2.26M+</div><div class="metric-sub">LendingClub</div></div>
+            <div class="metric"><div class="metric-label">Best model</div><div class="metric-val">RF</div><div class="metric-sub">Random Forest</div></div>
+            <div class="metric"><div class="metric-label">Top feature</div><div class="metric-val">Grade</div><div class="metric-sub">credit grade</div></div>
+          </div>
+          <div class="card-body">
+            <div class="insights-label">Model performance & insights</div>
+            <div class="insight"><span class="ins-dot"></span><strong>Best performer:</strong> Random Forest with significantly higher accuracy than Logistic Regression</div>
+            <div class="insight"><span class="ins-dot"></span><strong>Top predictors:</strong> Credit grade, interest rate, and debt-to-income ratio</div>
+            <div class="insight"><span class="ins-dot"></span><strong>Impact:</strong> Enables targeted risk assessment for 2.26M+ lending decisions</div>
+          </div>
+          <div class="card-foot">
+            <a class="card-link primary" href="projects/loan-prediction/loan-prediction.html" target="_blank">View Jupyter Analysis →</a>
+            <a class="card-link secondary" href="projects/loan-prediction/loan-prediction-detailed.html" target="_blank">📖 Read Full Story &amp; Technical Report →</a>
+          </div>
+          <span class="panel-footbar-src">source: LendingClub → notebook</span>
+        </div>
+      </div>
+
+      <!-- Panel 3: Accident Analysis -->
+      <div class="proj-panel" id="p3">
+        <div class="panel-topbar">
+          <div class="panel-topbar-left">
+            <span class="panel-badge badge-safety">Public Safety</span>
+            <span class="panel-meta">charlotte-nc · 2018–2019</span>
+          </div>
+          <div class="panel-status"><span class="status-dot"></span>Published</div>
+        </div>
+        <div class="panel-card">
+          <div class="card-head">
+            <div class="card-title-row">
+              <span class="card-title">Accident Analysis: Charlotte, NC</span>
+            </div>
+            <div class="card-desc">Traffic accident pattern analysis using Charlotte, NC data (2018–2019). Features comprehensive data storytelling and technical documentation.</div>
+            <div class="tag-row">
+              <span class="tag t-data">Data Analysis</span>
+              <span class="tag t-python">Python</span>
+              <span class="tag t-safety">Public Safety</span>
+            </div>
+          </div>
+          <div class="metrics-row">
+            <div class="metric"><div class="metric-label">Years covered</div><div class="metric-val">2</div><div class="metric-sub">2018–2019</div></div>
+            <div class="metric"><div class="metric-label">Peak hours</div><div class="metric-val">AM/PM</div><div class="metric-sub">rush hours</div></div>
+            <div class="metric"><div class="metric-label">Top collision</div><div class="metric-val">Rear</div><div class="metric-sub">end impacts</div></div>
+          </div>
+          <div style="padding: 14px 22px; border-bottom: 0.5px solid var(--border);">
+            <div class="insights-label">Key visualizations</div>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 10px;">
+              <img src="images/Accident_heatmap.png" alt="Rush Hour Heatmap" style="border-radius: 8px; width: 100%; height: auto; border: 0.5px solid var(--border);" />
+              <img src="images/Accidents_by_season.png" alt="Seasonal Trends" style="border-radius: 8px; width: 100%; height: auto; border: 0.5px solid var(--border);" />
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="insights-label">Key insights</div>
+            <div class="insight"><span class="ins-dot"></span>Rush hours (7–9 AM, 4–6 PM) show highest accident rates</div>
+            <div class="insight"><span class="ins-dot"></span>All-weather conditions significantly affect winter accidents</div>
+            <div class="insight"><span class="ins-dot"></span>Rear-end collisions dominate accident types</div>
+          </div>
+          <div class="card-foot">
+            <a class="card-link primary" href="projects/accident-analysis/accident_analysis.html" target="_blank">View Jupyter Analysis →</a>
+            <a class="card-link secondary" href="projects/accident-analysis/accident-analysis-detailed.html" target="_blank">📖 Read Full Story &amp; Technical Report →</a>
+          </div>
+          <span class="panel-footbar-src">source: open data → notebook</span>
+        </div>
+      </div>
+
+      <!-- Panel 4: Bollywood -->
+      <div class="proj-panel" id="p4">
+        <div class="panel-topbar">
+          <div class="panel-topbar-left">
+            <span class="panel-badge badge-dash">Dashboard</span>
+            <span class="panel-meta">bollywood-fame · 200+ actors</span>
+          </div>
+          <div class="panel-status"><span class="status-dot"></span>Live</div>
+        </div>
+        <div class="panel-card">
+          <div class="card-head">
+            <div class="card-title-row">
+              <span class="card-title">Bollywood Fame vs Talent Dashboard</span>
+            </div>
+            <div class="card-desc">Interactive Streamlit dashboard analyzing alignment between fame and talent for 200+ Bollywood actors. Features KPI tracking, filters, and comparative analytics.</div>
+            <div class="tag-row">
+              <span class="tag t-dash">Dashboard</span>
+              <span class="tag t-streamlit">Streamlit</span>
+              <span class="tag t-inter">Interactive</span>
+            </div>
+          </div>
+          <div class="metrics-row">
+            <div class="metric"><div class="metric-label">Actors</div><div class="metric-val">200+</div><div class="metric-sub">Bollywood</div></div>
+            <div class="metric"><div class="metric-label">KPIs</div><div class="metric-val">3</div><div class="metric-sub">Fame · Talent · Balance</div></div>
+            <div class="metric"><div class="metric-label">Interface</div><div class="metric-val">Live</div><div class="metric-sub">Streamlit app</div></div>
+          </div>
+          <div class="card-body">
+            <div class="insights-label">Dashboard features & insights</div>
+            <div class="insight"><span class="ins-dot"></span><strong>Interactive analytics:</strong> Real-time filters by movie count, ratings, and genres</div>
+            <div class="insight"><span class="ins-dot"></span><strong>3-tier scoring:</strong> Fame Score vs Talent Score with Balance metric</div>
+            <div class="insight"><span class="ins-dot"></span><strong>Drill-down capability:</strong> Actor profiles, top 10 comparisons, correlation heatmaps</div>
+          </div>
+          <div class="card-foot">
+            <a class="card-link primary" href="https://bollywood.streamlit.app/" target="_blank">🚀 Launch Live Dashboard →</a>
+            <a class="card-link secondary" href="projects/bollywood-dashboard/bollywood-dashboard-detailed.html" target="_blank">📖 Read Full Story &amp; Technical Report →</a>
+          </div>
+          <span class="panel-footbar-src">source: IMDb → dashboard</span>
+        </div>
+      </div>
+
+      <!-- Panel 5: House Prices -->
+      <div class="proj-panel" id="p5">
+        <div class="panel-topbar">
+          <div class="panel-topbar-left">
+            <span class="panel-badge badge-kaggle">Kaggle</span>
+            <span class="panel-meta">house-prices · advanced regression</span>
+          </div>
+          <div class="panel-status"><span class="status-dot"></span>Published</div>
+        </div>
+        <div class="panel-card">
+          <div class="card-head">
+            <div class="card-title-row">
+              <span class="card-title">Kaggle — House Prices (Project 3)</span>
+            </div>
+            <div class="card-desc">Regression project using the Kaggle 'House Prices - Advanced Regression Techniques' dataset. Three experiments: baseline linear regression, improved preprocessing, and Ridge + RandomForest ensemble with submission generation.</div>
+            <div class="tag-row">
+              <span class="tag t-regress">Regression</span>
+              <span class="tag t-python">Python</span>
+              <span class="tag t-kaggle">Kaggle</span>
+            </div>
+          </div>
+          <div class="metrics-row">
+            <div class="metric"><div class="metric-label">Experiments</div><div class="metric-val">3</div><div class="metric-sub">iterative builds</div></div>
+            <div class="metric"><div class="metric-label">Best model</div><div class="metric-val">Ens.</div><div class="metric-sub">Ridge + RF</div></div>
+            <div class="metric"><div class="metric-label">Output</div><div class="metric-val">CSV</div><div class="metric-sub">submission file</div></div>
+          </div>
+          <div class="card-body">
+            <div class="insights-label">Technical highlights</div>
+            <div class="insight"><span class="ins-dot"></span><strong>Preprocessing:</strong> Log-transform on target, pipeline-safe feature engineering</div>
+            <div class="insight"><span class="ins-dot"></span><strong>Ensemble strategy:</strong> Ridge regularization + RandomForest for optimal predictions</div>
+            <div class="insight"><span class="ins-dot"></span><strong>Deliverable:</strong> Kaggle competition submission with optimized RMSE</div>
+          </div>
+          <div class="card-foot">
+            <a class="card-link primary" href="projects/Kaggle%20Prediction%20Competition/project3_house_prices.html" target="_blank">View Notebook →</a>
+            <a class="card-link secondary" href="projects/Kaggle%20Prediction%20Competition/kaggle-prediction-competition-detailed.html" target="_blank">📖 Read Full Story &amp; Technical Report →</a>
+          </div>
+          <span class="panel-footbar-src">source: Kaggle → notebook</span>
+        </div>
+      </div>
+
+    </div><!-- /proj-panels -->
+  </div><!-- /project-explorer -->
+
+</section>
+
+<script>
+  document.querySelectorAll('.proj-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.proj-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.proj-panel').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.target).classList.add('active');
+    });
+  });
+</script>
+
+<div class="divider"></div>
+
+<section class="section" id="contact">
+  <div class="section-label">03 — contact</div>
+  <h2>Get in touch</h2>
+  <div class="contact-grid">
+    <div class="contact-row">
+      <span class="contact-label">Email</span>
+      <a href="mailto:Muhamed.Ahmad530@gmail.com">Muhamed.Ahmad530@gmail.com</a>
+    </div>
+    <div class="contact-row">
+      <span class="contact-label">GitHub</span>
+      <a href="https://github.com/Muhamed530" target="_blank">Muhamed530</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  muhamed ahmad · data analyst · built with python &amp; curiosity
+</footer>
 </body>
 </html>
